@@ -30,33 +30,12 @@
 
 ### Core Research Focus
 
-This research investigates a paradigm shift: rather than using distillation to remove watermarks (as an attack) or model compression, this project examines how **distillation can be used as a defensive strategy** to preserve and protect watermarks against obfuscation attacks. The key research questions are:
-
-- **Can distillation preserve watermark integrity while defending against obfuscation?**
-- **Can we design defense mechanisms using distillation that prevent obfuscation-based watermark removal?**
+This research investigates a paradigm shift: rather than using distillation to remove watermarks (as an attack) or model compression, this project examines how **distillation can be used as a defensive strategy** to preserve and protect watermarks against obfuscation attacks. 
 
 ### Problem Statement
 
-Obfuscation attacks attempt to obscure watermark signatures in neural networks, making them impossible to detect and verify in the white box watermarking schemes. Traditional watermarking schemes can be vulnerable to sophisticated obfuscation techniques. This research proposes and evaluates **knowledge distillation as a defensive countermeasure** that can:
+Obfuscation attacks attempt to obscure watermark signatures in neural networks by changing the topology of the network, making them impossible to detect and verify in white-box watermarking schemes. White-box watermarking schemes can be vulnerable to sophisticated obfuscation techniques. This research proposes and evaluates **knowledge distillation as a defensive countermeasure** that tries to preserve watermark information by model distillation, when the original model has been obfuscated
 
-1. Preserve watermark information during model distillation, even when the original model has been obfuscated
-2. Maintain watermark robustness against obfuscation attempts
-
-
-### Featured Watermarking Schemes Being Evaluated
-
-The project implements and evaluates several watermarking schemes under obfuscation attacks and with distillation-based defenses:
-
-1. **DICTION** - DynamIC robusT whIte bOx watermarkiNg scheme (with adversarial learning) <http://arxiv.org/abs/2210.15745>
-2. **DeepSigns** - Dynamic white-box watermarking with feature map preservation <https://arxiv.org/abs/1804.00750>
-3. **Uchida** - Bit-trigger based watermarking approach <https://arxiv.org/abs/1701.04082>
-4. **Encryption Resistant Scheme (RES_ENCRYPT)** - survive or resist encryption attacks <https://ieeexplore.ieee.org/document/9746461>
-5. **RIGA** - Regularization-based watermarking scheme <https://dl.acm.org/doi/10.1145/3442381.3450000>
-6. **PASSPORT** - Passport-protected networks for IP protection <https://arxiv.org/abs/1909.07830>
-7. **HUFU** - Robust watermarking with feature-level protection. <https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=10038500> 
-8. **STDM** - Spread Transform Dither Modulation <https://arxiv.org/abs/2012.14171>
-9. **GREEDY** - Greedy optimization-based watermarking <https://proceedings.mlr.press/v139/liu21x/liu21x.pdf>
-10. **LAPLACIAN** - Laplacian-based watermark distribution <https://arxiv.org/abs/2208.10973>
 
 
 
@@ -67,7 +46,7 @@ This project is organized into several key components for evaluating distillatio
 - **`attacks/`** - Contains obfuscation attack implementations and defense mechanisms:
   - `distillation.py` - **DEFENSE**: Knowledge distillation strategies to preserve and protect watermarks against obfuscation
   - `pruning.py` - an additional attack (removes unnecessary parameters to obscure watermarks)
-  - `dummy_neurons.py` - Obfuscation attack  (obscures watermark triggers)
+  - `dummy_neurons.py` - Obfuscation attack  (obscures watermark by changing the topology of the network)
   - `ambiguity.py` -  an additional attack(creates confusion in watermark detection)
   
 - **`models/`** - Pre-built model architectures for watermark evaluation
@@ -83,9 +62,9 @@ This project is organized into several key components for evaluating distillatio
 
 - **`datasets/`** - Prepared dataset loaders and utilities
 
-- **`DDPM/`** - Diffusion models for adversarial data generation in distillation defense and obfuscation attack scenarios
+- **`DDPM/`** - Diffusion models for adversarial data generation, distillation defense, and obfuscation attack scenarios
 
-- **`VAE/`** - Variational Autoencoders for latent space exploration and synthetic data generation and the test for distillation defense against obfuscation attacks
+- **`VAE/`** - Variational Autoencoders for latent space exploration and synthetic data generation, and the test for distillation defense against obfuscation attacks
 
 - **`watermark/`** - Watermarking scheme implementations (10 different schemes)
 
@@ -99,7 +78,7 @@ This project is organized into several key components for evaluating distillatio
 
 - **`tests/`** - Testing utilities and evaluation metrics
 
-- **`util/`** - Helper functions for metrics, GMM analysis, and common operations
+- **`util/`** - Helper functions for metrics, and common operations
 
 The project is developed in Python and provides a comprehensive framework for:
 1. **Watermark Embedding** - Apply various watermarking schemes to neural networks
@@ -107,7 +86,7 @@ The project is developed in Python and provides a comprehensive framework for:
 3. **Distillation-based Defense** - Apply knowledge distillation to counteract obfuscation
 4. **Robustness Evaluation** - Measure watermark persistence and detectability after obfuscation and defense
 
-## Features
+
 
 ### Supported Datasets
 
@@ -133,27 +112,27 @@ We have configured all watermarking schemes and removal attacks for multiple ima
 
 The following watermarking schemes are implemented and can be combined with various models and datasets:
 
+1. **DICTION** - DynamIC robusT whIte bOx watermarkiNg scheme (with adversarial learning) <http://arxiv.org/abs/2210.15745>
+2. **DeepSigns** - Dynamic white-box watermarking with feature map preservation <https://arxiv.org/abs/1804.00750>
+3. **Uchida** - Bit-trigger based watermarking approach <https://arxiv.org/abs/1701.04082>
+4. **Encryption Resistant Scheme (RES_ENCRYPT)** - survive or resist encryption attacks <https://ieeexplore.ieee.org/document/9746461>
+5. **RIGA** - Regularization-based watermarking scheme <https://dl.acm.org/doi/10.1145/3442381.3450000>
+6. **PASSPORT** - Passport-protected networks for IP protection <https://arxiv.org/abs/1909.07830>
+7. **HUFU** - Robust watermarking with feature-level protection. <https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=10038500> 
+8. **STDM** - Spread Transform Dither Modulation <https://arxiv.org/abs/2012.14171>
+9. **GREEDY** - Greedy optimization-based watermarking <https://proceedings.mlr.press/v139/liu21x/liu21x.pdf>
+10. **LAPLACIAN** - Laplacian-based watermark distribution <https://arxiv.org/abs/2208.10973>
 
-1. **DICTION** - <http://arxiv.org/abs/2210.15745>
-2. **DeepSigns** -  <https://arxiv.org/abs/1804.00750>
-3. **Uchida** -  <https://arxiv.org/abs/1701.04082>
-4. **Encryption Resistant Scheme (RES_ENCRYPT)** - <https://ieeexplore.ieee.org/document/9746461>
-5. **RIGA** - <https://dl.acm.org/doi/10.1145/3442381.3450000>
-6. **PASSPORT** -  <https://arxiv.org/abs/1909.07830>
-7. **HUFU** -  <https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=10038500> 
-8. **STDM** -  <https://arxiv.org/abs/2012.14171>
-9. **GREEDY** -  <https://proceedings.mlr.press/v139/liu21x/liu21x.pdf>
-10. **LAPLACIAN** -  <https://arxiv.org/abs/2208.10973>
 
 
 ### Implemented Attack Methods (Obfuscation Techniques)
 
-This framework implements  **obfuscation attack strategies** that attempt to obscure and remove watermarks. The primary contribution is evaluating **distillation-based defense mechanisms** against  obfuscation attack:
-additionally other type of attacks are implemented to evaluate the robustness of the watermarking schemes against attack.
+This framework implements  **obfuscation attack strategies** that attempt to obscure and remove watermarks by topology change. The primary contribution is evaluating **distillation-based defense mechanisms** against  obfuscation attacks:
+additionally other types of attacks are implemented to evaluate the robustness of the watermarking schemes against attacks.
 
 
 1. **Dummy Neurons Attack**
-   - Insertion of dummy neurons to obscure watermark triggers
+   - Insertion of dummy neurons to obscure the watermark.
    - Attempts to confuse watermark verification by adding irrelevant computations
    - **Defense**: Distillation filters out irrelevant neurons through knowledge transfer
    - Tests whether watermark robustness survives obfuscation
@@ -161,7 +140,7 @@ additionally other type of attacks are implemented to evaluate the robustness of
 
 2. **Pruning Attack**
    - Removes parameters to obscure watermark information
-   - Tests resilience of watermarks to model compression
+   - Tests the resilience of watermarks to model compression
    - Evaluates watermark recovery after parameter removal
 
 3. **Fine-Tuning Attack**
@@ -169,12 +148,12 @@ additionally other type of attacks are implemented to evaluate the robustness of
    - Evaluates watermark stability under model drift
 
 4. **Ambiguity Attack**
-   - Creates ambiguity in model watermark to create doubt in watermark verification
+   - Creates ambiguity in the model watermark to create doubt in watermark verification
    - Tests watermark clarity preservation
 
 5. **Overwriting Attack**
    - Attempts to embed conflicting watermarks
-   - Tests uniqueness and separation of watermark spaces
+   - Tests the uniqueness and separation of watermark spaces
    - Evaluates watermark interference resilience
 
 
@@ -187,7 +166,7 @@ additionally other type of attacks are implemented to evaluate the robustness of
 - **PRUNING** - Apply pruning to the model
 - **FINE_TUNING** - Fine-tune the model
 - **OVERWRITING** - Attempt to overwrite watermarks
-- **DUMMY_NEURONS** - Insert dummy neurons
+- **DUMMY_NEURONS** - Insert dummy neurons (obfuscation attack)
 - **AMBIGUITY** - Apply ambiguity attacks
 
 
@@ -243,70 +222,8 @@ bash ./run_tests.sh
 
 This script can be customized to run specific combinations of methods, models, and operations by modifying the parameters within the script.
 - Runs the `test_case.py` script with different combinations of methods, models, and operations
-- Outputs results to organized directories under `outs/`
+- Outputs results to organized directories under `outs/.`
 
-### Command Line Usage
-
-For more control, run `test_case.py` directly:
-
-```bash
-python test_case.py --method METHOD --model MODEL --operation OPERATION
-```
-
-#### Available Methods
-
-- `DICTION` - DICTION watermarking scheme
-- `DEEPSIGNS` - DeepSigns watermarking scheme
-- `UCHIDA` - Uchida watermarking scheme
-- `RES_ENCRYPT` - Encryption Resistant scheme
-- `RIGA` - RIGA watermarking scheme
-- `PASSPORT` - Passport watermarking scheme
-- `HUFUNET` - HUFU watermarking scheme
-- `STDM` - STDM watermarking scheme
-- `GREEDY` - Greedy watermarking scheme
-- `LAPLACIAN` - Laplacian watermarking scheme
-
-
-#### Available Models
-
-- `MLP` - Multi-Layer Perceptron (MNIST)
-- `CNN` - Convolutional Neural Network (CIFAR-10)
-- `RESNET18` - ResNet-18 (CIFAR-10)
-- `VGG16` - VGG-16 architecture
-
-
-#### Available Operations
-
-- `TRAIN` - Train a base model
-- `WATERMARKING` - Embed watermark into a trained model
-- `TRAIN-WATERMARKING` - Train and watermark in one operation
-- `DISTILLATION` - Perform distillation attack on watermarked model
-- `PRUNING` - Apply pruning to watermarked model
-- `FINE_TUNING` - Fine-tune the watermarked model
-- `PRUNING_FINE_TUNING` - Combine pruning with fine-tuning
-- `OVERWRITING` - Attempt to overwrite the watermark
-- `DUMMY_NEURONS` - Insert dummy neurons
-- `AMBIGUITY` - Apply ambiguity attacks
-
-
-### Example Commands
-
-```bash
-# Train a CNN model on CIFAR-10
-python test_case.py --method DICTION --model CNN --operation TRAIN
-
-# Watermark the trained CNN with DICTION
-python test_case.py --method DICTION --model CNN --operation WATERMARKING
-
-# Attack the watermarked model using distillation
-python test_case.py --method DICTION --model CNN --operation DISTILLATION
-
-# Attack using pruning
-python test_case.py --method DICTION --model CNN --operation PRUNING
-
-# Attack using fine-tuning
-python test_case.py --method DICTION --model CNN --operation FINE_TUNING
-```
 
 ### Results and Outputs
 
@@ -330,7 +247,7 @@ Each directory contains logs and model files for the corresponding operation.
 
 This project includes several configuration files that allow you to customize various aspects of the data, training, and watermarking processes.
 
-- `cf_data.py`: This file contains configurations related to data such as batch size and the path to save it. For example:
+- `cf_data.py`: This file contains configurations related to data, such as batch size and the path to save it. For example:
 
     ```python
     config_data = {
@@ -408,72 +325,40 @@ This project includes several configuration files that allow you to customize va
 Distillation is not an attack in this framework—it is the **primary defense mechanism** against obfuscation attacks. Instead of a student model learning from a watermarked teacher to steal the watermark, here we use distillation to **preserve and recover watermarks** that have been obfuscated.
 
 **How Defense Works:**
-- When a watermarked model (white-box watermarking) is subjected to obfuscation attacks, the watermark becomes impossible to verify
+- When a watermarked model (white-box watermarking) is subjected to obfuscation attacks, the watermark becomes impossible to verify 
 - Apply knowledge distillation to transfer the essential properties (including watermark) to a new model
 - The distillation process acts as a filter, removing noise and obfuscation while preserving critical watermark information
 - Feature-level and output-level alignment ensures watermark robustness is maintained
 
-**Key Features:**
 
-- **Temperature-based softmax** for controlled knowledge transfer
-- **Batch-wise feature matching** to preserve specific watermark embeddings
-- **Configurable student/teacher architectures** for different defense strategies
-- **Multi-level distillation**: Output-level, and feature-level
+### 2. Dummy Neurons Attack (Obfuscation via topology change)
 
-
-**Defense Effectiveness Questions:**
-- How well can distillation recover watermarks after obfuscation attacks?
-- Which distillation strategies best preserve watermark robustness?
-
-
-**Usage:**
-```bash
-# Apply distillation-based defense after obfuscation
-python test_case.py --method DICTION --model CNN --operation DISTILLATION
-```
-
-
-
-### 3. Dummy Neurons Attack (Obfuscation via Noise Injection)
-
-Inserts irrelevant neurons to obscure watermark triggers and signatures.
+Inserts irrelevant neurons to obscure the watermark.
 
 **How Obfuscation Works:**
-- Add dummy neurons that perform no meaningful computation
+- Add dummy neurons that perform no meaningful effect on the model's functionality. 
 - Increases model complexity without improving accuracy
 - destroy watermark verification in white-box watermarking schemes
 
 
 **Defense Strategy:**
-- Distillation naturally filters out dummy neurons during knowledge transfer
 - Student model learns only essential features and watermark patterns
 - Results in a cleaner, smaller model with preserved watermark
 
-**Usage:**
-```bash
-python test_case.py --method DICTION --model CNN --operation DUMMY_NEURONS
-```
 
-
-**Metrics Evaluated:**
-- Bit Error Rate (BER) on trigger set
-- Model accuracy preservation
-
-
- distributions
 
 ## Jupyter Notebooks
 
 Several analysis notebooks are provided in `sentiments/` and `DDPM/`:
 
-- **Sentiment**: Analyze tranformeer-base model tinyBERT on SST-2 dataset for distillation-based defense against obfuscation attacks
+- **Sentiment**: Analyze transformer-based model tinyBERT on SST-2 dataset for distillation-based defense against obfuscation attacks
 - **DDPM Models**: Diffusion model implementations on Cifar10 dataset for adversarial data generation in distillation defense and obfuscation attack scenarios
-- **VAE Models**: Variational autoencoders for latent space exploration on celebA dataset  for testing distillation defense against obfuscation attacks
+- **VAE Models**: Variational autoencoders for latent space exploration on the celebA dataset  for testing distillation defense against obfuscation attacks
 
 
 ## Contributing
 
-Contributions are welcome. Please submit a pull request with your changes. If you have any questions, please contact at mahdieh.pouresmaeil@imt-atlantique.fr
+Contributions are welcome. Please submit a pull request with your changes. If you have any questions, please contact me at mahdieh.pouresmaeil@imt-atlantique.fr
 
 ## License
 
