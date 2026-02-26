@@ -34,7 +34,7 @@ This research investigates a paradigm shift: rather than using distillation to r
 
 ### Problem Statement
 
-Obfuscation attacks attempt to obscure watermark signatures in neural networks, making them impossible to detect and verify in the white box watermarking schemes. Traditional watermarking schemes can be vulnerable to sophisticated obfuscation techniques. This research proposes and evaluates **knowledge distillation as a defensive countermeasure** that can:
+Obfuscation attacks attempt to obscure watermark signatures in neural networks by changing the topology of the network, making them impossible to detect and verify in white-box watermarking schemes. Traditional watermarking schemes can be vulnerable to sophisticated obfuscation techniques. This research proposes and evaluates **knowledge distillation as a defensive countermeasure** that can:
 
 1. Preserve watermark information during model distillation, even when the original model has been obfuscated
 2. Maintain watermark robustness against obfuscation attempts
