@@ -30,10 +30,7 @@
 
 ### Core Research Focus
 
-This research investigates a paradigm shift: rather than using distillation to remove watermarks (as an attack) or model compression, this project examines how **distillation can be used as a defensive strategy** to preserve and protect watermarks against obfuscation attacks. The key research questions are:
-
-- **Can distillation preserve watermark integrity while defending against obfuscation?**
-- **Can we design defense mechanisms using distillation that prevent obfuscation-based watermark removal?**
+This research investigates a paradigm shift: rather than using distillation to remove watermarks (as an attack) or model compression, this project examines how **distillation can be used as a defensive strategy** to preserve and protect watermarks against obfuscation attacks. 
 
 ### Problem Statement
 
