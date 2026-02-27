@@ -26,7 +26,7 @@
 
 ## Overview
 
-**WatDNN** is a comprehensive research framework investigating **Knowledge Distillation as a Defense Mechanism Against Obfuscation Attacks** on watermarked Deep Neural Networks. This project explores how knowledge distillation can be leveraged to **counteract obfuscation attacks** that attempt to obscure or remove watermarks from neural network models.
+**WatDNN** is a comprehensive research framework investigating **Knowledge Distillation as a Defense Mechanism Against Obfuscation Attacks** on watermarked Deep Neural Networks. This project explores how knowledge distillation can be leveraged to **counteract obfuscation attacks** that attempt to obscure watermarks from neural network models.
 
 ### Core Research Focus
 
